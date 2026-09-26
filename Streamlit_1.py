@@ -2,7 +2,8 @@ import streamlit as st
 import pickle
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-model = pickle.load(open("StreamlitRepo/classifier.pkl","rb"))
+with open("classifier.pkl", "rb") as f:
+    model = pickle.load(f)
 st.title("Heart Disease Prediction App")
 age = st.number_input("Enter your age",min_value=0,max_value=120,value=50)
 sex = st.selectbox("Sex",["Male","Female"])
