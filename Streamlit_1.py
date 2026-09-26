@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 import os
 from sklearn.preprocessing import MinMaxScaler
-with open("classifier.pkl", "rb") as f:
+with open("/mount/src/streamlitrepo/classifier.pkl", "rb") as f:
     model = pickle.load(f)
     
 st.title("Heart Disease Prediction App")
