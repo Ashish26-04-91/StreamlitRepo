@@ -9,27 +9,6 @@ with open("/mount/src/streamlitrepo/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)      
     
 st.title("Heart Disease Prediction App")
-st.markdown(
-    """
-    <style>
-    /* Change background color */
-    .stApp {
-        background: linear-gradient(to right, #ffe5e5, #ffcccc);
-    }
-
-    /* Change header color */
-    h1 {
-        color: #b30000;
-    }
-
-    /* Change sidebar background */
-    [data-testid="stSidebar"] {
-        background-color: #ffe5e5;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 st.set_page_config(page_title = "Heart Disease Predictor",page_icon = "❤️")
 st.sidebar.title("About")
