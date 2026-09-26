@@ -22,6 +22,7 @@ oldpeak = st.number_input("ST Depression",min_value=0.0,max_value=6.0,value = 1.
 slope = st.selectbox("Slope of Peak Exercise",["Upsloping","Flat","Downsloping"])
 ca = st.selectbox("Number of Major Vessels", [0, 1, 2, 3])
 thal = st.selectbox("Thalassemia", ["Normal", "Fixed defect", "Reversible defect"])
+
 if sex == "Male":
    sex = 1
 elif sex == "Female":
@@ -37,12 +38,24 @@ elif cp == "Non-anginal pain":
 elif cp == "Asymptomatic":
     cp = 3
 
+if fbs =="Yes":
+    fbs = 1
+elif fbs == "No":
+    fbs = 0
+    
+
 if restecg == "Normal":
    restecg = 0
 elif restecg == "ST-T wave abnormality":
     restecg = 1
 elif restecg == "Left ventricular hypertrophy":
     restecg = 2
+
+if exang =="Yes":
+    exang = 1
+elif exang == "No":
+    exang = 0
+
 
 if slope == "Upsloping":
     slope = 0
