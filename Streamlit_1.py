@@ -5,6 +5,8 @@ import os
 from sklearn.preprocessing import MinMaxScaler
 with open("/mount/src/streamlitrepo/classifier.pkl", "rb") as f:
     model = pickle.load(f)
+with open("/mount/src/streamlitrepo/scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)      
     
 st.title("Heart Disease Prediction App")
 age = st.number_input("Enter your age",min_value=0,max_value=120,value=50)
