@@ -82,7 +82,7 @@ if st.button("Predict"):
                             thalach, exang, oldpeak, slope, ca, thal]])
     input_data[:,[3,4,7]] = scaler.transform(input_data[:,[3,4,7]])
     prediction = model.predict(input_data)
-    if prediction[0] == 1:
+    if prediction[0] > 0.5:
         st.error("⚠️ Heart Disease Detected")
     else:
         st.success("✅ No Heart Disease")
