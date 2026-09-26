@@ -9,6 +9,28 @@ with open("/mount/src/streamlitrepo/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)      
     
 st.title("Heart Disease Prediction App")
+st.markdown(
+    """
+    <style>
+    /* Change background color */
+    .stApp {
+        background: linear-gradient(to right, #ffe5e5, #ffcccc);
+    }
+
+    /* Change header color */
+    h1 {
+        color: #b30000;
+    }
+
+    /* Change sidebar background */
+    [data-testid="stSidebar"] {
+        background-color: #ffe5e5;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.set_page_config(page_title = "Heart Disease Predictor",page_icon = "❤️")
 st.sidebar.title("About")
 st.sidebar.info("This app predicts the likelihood of heart disease based on medical inputs.")
@@ -79,5 +101,5 @@ if st.button("Predict"):
                             thalach, exang, oldpeak, slope, ca, thal]])
     input_data[:,[3,4,7]] = scaler.fit_transform(input_data[:,[3,4,7]])
     prediction = model.predict(input_data)
-    result = "Heart Disease Detected" if prediction[0] == 1 else "No Heart Disease"
+    result = st.error("⚠️Heart Disease Detected") if prediction[0] == 1 else st.success("✅ No Heart Disease")
     st.success(result)
