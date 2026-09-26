@@ -1,8 +1,10 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
 from sklearn.preprocessing import MinMaxScaler
-with open("classifier.pkl", "rb") as f:
+file_path = os.path.join(os.path.dirname(__file__), "classifier.pkl")
+with open(file_path, "rb") as f:
     model = pickle.load(f)
 st.title("Heart Disease Prediction App")
 age = st.number_input("Enter your age",min_value=0,max_value=120,value=50)
