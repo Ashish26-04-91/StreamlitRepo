@@ -17,6 +17,41 @@ oldpeak = st.number_input("ST Depression",min_value=0.0,max_value=6.0,value = 1.
 slope = st.selectbox("Slope of Peak Exercise",["Upsloping","Flat","Downsloping"])
 ca = st.selectbox("Number of Major Vessels", [0, 1, 2, 3])
 thal = st.selectbox("Thalassemia", ["Normal", "Fixed defect", "Reversible defect"])
+if sex == "Male":
+   sex = 1
+elif sex == "Female":
+   sex = 0
+
+
+if cp == "Typical Angina":
+   cp  = 0
+elif cp == "Atypical Angina":
+    cp = 1
+elif cp == "Non-anginal pain":
+    cp = 2
+elif cp == "Asymptomatic":
+    cp = 3
+
+if restecg == "Normal":
+   restecg = 0
+elif restecg == "ST-T wave abnormality":
+    restecg = 1
+elif restecg == "Left ventricular hypertrophy":
+    restecg = 2
+
+if slope == "Upsloping":
+    slope = 0
+elif slope == "Flat":
+    slope = 1
+elif slope == "Downsloping":
+    slope = 2
+
+if thal == "Normal":
+    thal = 1
+elif thal == "Fixed defect":
+    thal = 2
+elif thal == "Reversible defect":
+    thal = 3
 if st.button("Predict"):
     scale = MinMaxScaler()
     trestbps = scale.fit_transform(trestbps)
