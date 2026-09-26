@@ -57,9 +57,9 @@ elif thal == "Reversible defect":
     thal = 3
 if st.button("Predict"):
     scale = MinMaxScaler()
-    trestbps,chol,thalach = scale.fit_transform([trestbps,chol,thalach])
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
                             thalach, exang, oldpeak, slope, ca, thal]])
+    input_data[:,[3,4,7]] = scaler.fit_transform(input_data[:,[3,4,7]])
     prediction = model.predict(input_data)
     result = "Heart Disease Detected" if prediction[0] == 1 else "No Heart Disease"
     st.success(result)
