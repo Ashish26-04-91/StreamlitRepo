@@ -1,6 +1,7 @@
 import streamlit as st
-st.title("Hello, Mamta!")
-st.title("Gudde ko lekr mandir chalna hai kya aaj.")
-select_time = st.selectbox("Please select your time",["---Select time---","6 pm","7 pm","8 pm"])
-if select_time != "---Select time---":
-  st.write("okay be ready at", select_time)
+st.title("Heart Disease Prediction App")
+age = st.number_input("Enter your age",min_value=0,max_value=120)
+sex = st.selectbox("Sex",["Male","Female"])
+cp = st.selectbox("Chest Pain Type",["Typical Angina","Atypical Angina","Non-anginal pain","Asymptomatic"])
+trestbps = st.number_input("Resting Blood Pressure",min_value=80,max_value=200)
+chol = st.number_input("Cholestrol",min_value=100,max_value=600)
