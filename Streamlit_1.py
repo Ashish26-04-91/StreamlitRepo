@@ -9,6 +9,7 @@ with open("/mount/src/streamlitrepo/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)      
     
 st.title("Heart Disease Prediction App")
+st.set_page_config(page_title = "Heart Disease Predictor",page_icon = "❤️")
 age = st.number_input("Enter your age",min_value=0,max_value=120,value=50)
 sex = st.selectbox("Sex",["Male","Female"])
 cp = st.selectbox("Chest Pain Type",["Typical Angina","Atypical Angina","Non-anginal pain","Asymptomatic"])
