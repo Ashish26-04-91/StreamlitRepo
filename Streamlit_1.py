@@ -57,7 +57,7 @@ elif thal == "Reversible defect":
     thal = 3
 if st.button("Predict"):
     scale = MinMaxScaler()
-    trestbps,chol,thalach = scale.fit_transform([[trestbps,chol,thalach]])
+    trestbps,chol,thalach = scale.fit_transform([trestbps,chol,thalach])
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
                             thalach, exang, oldpeak, slope, ca, thal]])
     prediction = model.predict(input_data)
