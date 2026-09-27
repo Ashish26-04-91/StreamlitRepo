@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import numpy as np
 import os
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 with open("/mount/src/streamlitrepo/classifier.pkl", "rb") as f:
     model = pickle.load(f)
 with open("/mount/src/streamlitrepo/scaler.pkl", "rb") as f:
@@ -77,10 +77,10 @@ elif thal == "Fixed defect":
 elif thal == "Reversible defect":
     thal = 3
 if st.button("Predict"):
-    scale = MinMaxScaler()
+    scale = StandardScaler()
     input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg,
                             thalach, exang, oldpeak, slope, ca, thal]])
-    input_data[:,[3,4,7]] = scaler.fit_transform(input_data[:,[3,4,7]])
+    input_data[:,[0,3,4,7]] = scaler.fit_transform(input_data[:,[0,3,4,7]])
     prediction = model.predict(input_data)
     if prediction[0] > 0.5:
         st.error("⚠️ Heart Disease Detected")
